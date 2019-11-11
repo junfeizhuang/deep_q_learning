@@ -1,27 +1,39 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plot(score_list,loss_list,plot_frequency):
-    length = len(score_list[::plot_frequency])
-    es = list(range(length))
-    scores, losses = list(), list()
-    for i in range(length):
-        scores.append(np.mean(score_list[i:i+plot_frequency]))
-        losses.append(np.mean(loss_list[i:i+plot_frequency]))
+def creat_figure(x_label, y_label):
     plt.figure(figsize=(9, 5))
     plt.title("Result")
-    plt.xlabel("Episode")
-    plt.ylabel("Score")
-    # episode_data_x = data_x_update(loss_data_x, episode_data_x)
-    plt.plot(es, scores, color='green', label='Reward')
-    plt.legend()
-    plt.savefig('reward.jpg')
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
 
-    plt.figure(figsize=(9, 5))
-    plt.title("Result")
-    plt.xlabel("Episode")
-    plt.ylabel("Loss")
-    # episode_data_x = data_x_update(loss_data_x, episode_data_x)
-    plt.plot(es, losses, color='yellow', label='Loss')
+def draw_curve(original_list, plot_frequency, name, color):
+    length = len(original_list[::plot_frequency])
+    es = list(range(length))
+    new_list = list()
+    for i in range(length):
+        new_list.append(np.mean(original_list[i:i+plot_frequency]))
+    plt.plot(es, new_list, color=color, label= name)
+    
+
+def plot(plot_frequency, **kwargs):
+    dqn_score_list = kwargs['dqn_score_list']
+    ddqn_score_list = kwargs['ddqn_score_list']
+    dueling_score_list = kwargs['dueling_score_list']
+    dqn_loss_list = kwargs['dqn_loss_list']
+    ddqn_loss_list = kwargs['ddqn_loss_list']
+    dueling_loss_list = kwargs['dueling_loss_list']
+    
+    creat_figure("Episode","Score")
+    draw_curve(dqn_score_list,plot_frequency,'dqn_score','red' )
+    draw_curve(ddqn_score_list,plot_frequency,'ddqn_score','blue' )
+    draw_curve(dueling_score_list,plot_frequency,'dueling_score','green' )
+    plt.legend()
+    plt.savefig('Reward.jpg')
+    
+    creat_figure("Episode","Loss")
+    draw_curve(dqn_loss_list,plot_frequency,'dqn_loss','red')
+    draw_curve(ddqn_loss_list,plot_frequency,'ddqn_loss','blue')
+    draw_curve(dueling_loss_list,plot_frequency,'dueling_loss','green' )
     plt.legend()
     plt.savefig('Loss.jpg')

@@ -24,6 +24,7 @@ class RLDataset(Dataset):
                 
     def __getitem__(self,idx):
         memory = self.memory[idx,:]
+
         b_s = torch.FloatTensor(memory[:self.n_state])
         b_a = torch.LongTensor(memory[self.n_state:self.n_state+1])
         b_r = torch.FloatTensor(memory[self.n_state+1:self.n_state+2])
