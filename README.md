@@ -13,3 +13,9 @@ Simple code using pytorch to realize reinforcement learning.
 
 ### Policy gradient navie
 - [x] [Policy gradient navie](https://github.com/junfeizhuang/deep_q_learning/tree/master/policy_gradient_naive)
+
+
+### Actor critic
+- [] [Actor Critic (AC)]
+
+- [] [Deep Deterministic Policy Gradient (DDPG)]
