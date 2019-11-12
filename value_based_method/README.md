@@ -1,5 +1,5 @@
 # value based method 
-A simple example to learn DQN family implemenation in pytorch.  
+A simple example to learn DQN family implemenation using pytorch.  
 The environment is [CartPole-v1](https://gym.openai.com/envs/)
 
 Change `Config.py` to support DQN, Double DQN and Dueling DQN
