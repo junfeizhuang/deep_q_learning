@@ -7,3 +7,5 @@ Just run `pg_navie.py` to get results
 
 Results are showed as below
 ![CartPole-v1](https://github.com/junfeizhuang/deep_q_learning/blob/master/policy_gradient_naive/results/CartPole-v0.jpg)
+
+![MountainCar-v0](https://github.com/junfeizhuang/deep_q_learning/blob/master/policy_gradient_naive/results/MountainCar-v0.jpg)
