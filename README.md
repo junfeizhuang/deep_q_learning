@@ -16,6 +16,5 @@ Simple code using pytorch to realize reinforcement learning.
 
 
 ### Actor critic
-- [x] [Actor Critic (AC)]()
 
 - [x] [Deep Deterministic Policy Gradient (DDPG)]()
